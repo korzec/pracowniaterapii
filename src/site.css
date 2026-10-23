@@ -96,6 +96,24 @@
   justify-content: center;
 }
 
+@media only screen and (max-width: 980px) {
+  .main-navigation .header-menu-button,
+  .main-navigation .header-menu-button:hover,
+  .main-navigation .header-menu-button:focus,
+  .main-navigation .header-menu-button:active {
+    background: transparent !important;
+    border: 0;
+    color: #000 !important;
+    box-shadow: none;
+    margin: 0 auto;
+  }
+
+  .main-navigation .header-menu-button:focus-visible {
+    outline: 2px solid #00513b;
+    outline-offset: 2px;
+  }
+}
+
 @media only screen and (max-width: 782px) {
   .site-topbar-right {
     justify-content: center;
