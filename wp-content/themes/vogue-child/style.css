@@ -1,0 +1,103 @@
+/**
+* Theme Name: 	vogue-child
+* Template: 	vogue
+* Version:      0.0.6
+* Author: Konrad
+* Text Domain: vogue-child
+* Description:
+* License: GNU General Public License v2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+body {
+	font-size: 17px;
+}
+
+ul li, ol li {
+    margin: 0 0 4px;
+}
+
+.pricelist-table tr {
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+.pricelist-table td:nth-child(2) {
+	padding: 4px;
+}
+
+.content-area {
+    /*padding: 30px 10% 30px 10%;*/
+}
+
+.entry-content {
+	text-align: justify;
+}
+.entry-content img {
+	margin-bottom: 20px;
+}
+@media screen and (max-width: 700px) {
+	.entry-content {
+		text-align: center;
+	}
+	ul {
+		list-style: none;
+	}
+}
+
+@media screen and (max-width: 1120px) {
+	.alignleft {
+		float: none;
+	}
+}
+
+.widget-area {
+	font-size: 15px;
+}
+
+.site-title {
+	font-size: 54px !important;
+}
+
+.site-description {
+	font-size: 20px !important;
+}
+
+.home-slider-block {
+    min-height: 200px;
+}
+
+.home-slider-block-bg {
+	background-color: transparent;
+}
+
+.home-slider-block-inner {
+	margin: -120px 0 0;
+}
+
+@media only screen and (max-width: 700px) {
+	.home-slider-block-inner {
+		top: 0;
+		margin: 0;
+		display: block;
+    	padding: 0 20px;
+    }
+    .home-slider-block h3 {
+    	font-size: 20px;
+    }
+}
+
+.site-footer-social-copy {
+	margin: 90px 0 0 !important;
+}
+
+.site-footer-icons {
+    padding: 90px 0 0 !important;
+}
+
+.main-page-widget {
+	text-align: center;
+}
+
+.main-page-widget iframe {
+	width: 525px !important;
+}

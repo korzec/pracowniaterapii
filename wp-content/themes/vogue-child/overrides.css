@@ -1,0 +1,26 @@
+.birs_appointment_section,
+.birs_appointment_location,
+.birs_appointment_service,
+.birs_appointment_staff,
+.birs_client_section {
+	display: none;
+}
+
+.birs_form_field textarea {
+	height: auto !important;
+}
+
+div#birs_appointment_timeoptions span {
+	display: none !important;
+}
+div#birs_appointment_timeoptions span:nth-child(4n+1) {
+	display: inline-block !important;
+}
+
+div#birs_appointment_timeoptions a {
+	padding: 0 !important;
+}
+
+#birs_appointment_form .birs_field_content.birs_field_paragraph {
+    max-width: 27em !important;
+}
