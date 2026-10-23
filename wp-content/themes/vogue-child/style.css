@@ -67,7 +67,7 @@ ul li, ol li {
 }
 
 .home-slider-block-bg {
-	background-color: transparent;
+	background-color: rgba(0, 0, 0, 0.78);
 }
 
 .home-slider-block-inner {
@@ -81,6 +81,10 @@ ul li, ol li {
 		display: block;
     	padding: 0 20px;
     }
+	.home-slider-block-bg {
+		box-sizing: border-box;
+		width: 100%;
+	}
     .home-slider-block h3 {
     	font-size: 20px;
     }
