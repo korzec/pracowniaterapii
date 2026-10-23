@@ -1,0 +1,147 @@
+[
+  {
+    "path": "/",
+    "sourcePath": "/",
+    "fragment": "home",
+    "title": "Pracownia Terapii i Rozwoju – Martyna Korzec",
+    "bodyClass": "home page-template page-template-template-full-width page-template-template-full-width-php page page-id-2",
+    "layout": "full",
+    "hero": true
+  },
+  {
+    "path": "/artykuly/",
+    "sourcePath": "/artykuly/index.html",
+    "fragment": "artykuly",
+    "title": "Artykuły",
+    "bodyClass": "blog",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/author/martyna/",
+    "sourcePath": "/author/martyna/index.html",
+    "fragment": "author-martyna",
+    "title": "Martyna Korzec",
+    "bodyClass": "archive author author-martyna author-1",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/category/bez-kategorii/",
+    "sourcePath": "/category/bez-kategorii/index.html",
+    "fragment": "category-bez-kategorii",
+    "title": "Bez kategorii",
+    "bodyClass": "archive category category-bez-kategorii category-1",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/category/psychoterapia/",
+    "sourcePath": "/category/psychoterapia/index.html",
+    "fragment": "category-psychoterapia",
+    "title": "psychoterapia",
+    "bodyClass": "archive category category-psychoterapia category-5",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/category/slider-posts/",
+    "sourcePath": "/category/slider-posts/index.html",
+    "fragment": "category-slider-posts",
+    "title": "Slider Posts",
+    "bodyClass": "archive category category-slider-posts category-3",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/gabinet/",
+    "sourcePath": "/gabinet/index.html",
+    "fragment": "gabinet",
+    "title": "Gabinet",
+    "bodyClass": "page-template-default page page-id-20",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/grupa-wsparcia-co-to-jest-i-jak-dziala/",
+    "sourcePath": "/grupa-wsparcia-co-to-jest-i-jak-dziala/index.html",
+    "fragment": "grupa-wsparcia-co-to-jest-i-jak-dziala",
+    "title": "Grupa wsparcia – co to jest i jak działa?",
+    "bodyClass": "post-template-default single single-post postid-190 single-format-standard",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/jak-wybrac-dobrego-psychoterapeute/",
+    "sourcePath": "/jak-wybrac-dobrego-psychoterapeute/index.html",
+    "fragment": "jak-wybrac-dobrego-psychoterapeute",
+    "title": "Jak wybrać dobrego psychoterapeutę?",
+    "bodyClass": "post-template-default single single-post postid-144 single-format-standard",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/kontakt/",
+    "sourcePath": "/kontakt/index.html",
+    "fragment": "kontakt",
+    "title": "Kontakt",
+    "bodyClass": "page-template-default page page-id-22",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/najtrudniejszy-pierwszy-krok/",
+    "sourcePath": "/najtrudniejszy-pierwszy-krok/index.html",
+    "fragment": "najtrudniejszy-pierwszy-krok",
+    "title": "Najtrudniejszy pierwszy krok",
+    "bodyClass": "post-template-default single single-post postid-28 single-format-standard",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/o-mnie/",
+    "sourcePath": "/o-mnie/index.html",
+    "fragment": "o-mnie",
+    "title": "O mnie",
+    "bodyClass": "page-template-default page page-id-11",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/odwaga/",
+    "sourcePath": "/odwaga/index.html",
+    "fragment": "odwaga",
+    "title": "Odwaga",
+    "bodyClass": "post-template-default single single-post postid-26 single-format-standard",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/oferta/",
+    "sourcePath": "/oferta/index.html",
+    "fragment": "oferta",
+    "title": "Oferta",
+    "bodyClass": "page-template-default page page-id-17",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/psychoterapia/",
+    "sourcePath": "/psychoterapia/index.html",
+    "fragment": "psychoterapia",
+    "title": "Psychoterapia",
+    "bodyClass": "page-template-default page page-id-15",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/psychoterapia-grupowa/",
+    "sourcePath": "/psychoterapia-grupowa/index.html",
+    "fragment": "psychoterapia-grupowa",
+    "title": "Psychoterapia grupowa",
+    "bodyClass": "page-template-default page page-id-162 siteorigin-panels siteorigin-panels-before-js",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/witaj-w-pracownii-terapii-i-rozwoju/",
+    "sourcePath": "/witaj-w-pracownii-terapii-i-rozwoju/index.html",
+    "fragment": "witaj-w-pracownii-terapii-i-rozwoju",
+    "title": "Witaj w Pracownii Terapii i Rozwoju",
+    "bodyClass": "post-template-default single single-post postid-7 single-format-standard",
+    "layout": "sidebar"
+  },
+  {
+    "path": "/zasady-terapii-gestalt/",
+    "sourcePath": "/zasady-terapii-gestalt/index.html",
+    "fragment": "zasady-terapii-gestalt",
+    "title": "Zasady terapii Gestalt",
+    "bodyClass": "post-template-default single single-post postid-110 single-format-standard",
+    "layout": "sidebar"
+  }
+]

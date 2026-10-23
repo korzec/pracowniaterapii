@@ -1,0 +1,47 @@
+.search-block {
+  display: none;
+}
+
+.search-block.is-open {
+  display: block;
+  opacity: 1;
+}
+
+.menu-search,
+.scroll-to-top {
+  border: 0;
+  cursor: pointer;
+}
+
+.menu-search {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.scroll-to-top {
+  display: none;
+}
+
+.scroll-to-top.is-visible {
+  display: block;
+}
+
+.home-hero .home-slider-remove {
+  height: auto !important;
+  background: none;
+}
+
+.home-hero .home-slider-remove .home-slider {
+  visibility: visible;
+}
+
+.home-hero .home-slider-prev,
+.home-hero .home-slider-next,
+.home-hero .home-slider-pager {
+  display: none;
+}
+
+.home-content {
+  display: block;
+}

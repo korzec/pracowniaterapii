@@ -1,13 +1,16 @@
 # Pracownia Terapii i Rozwoju
 
-Static website for [pracowniaterapii.com.pl](https://pracowniaterapii.com.pl), originally mirrored from WordPress and now served directly from this repository. The pages are HTML files; their styles, scripts, fonts, and images are stored alongside them. WordPress-style paths remain because the pages reference those assets.
+React single-page application for [pracowniaterapii.com.pl](https://pracowniaterapii.com.pl). Shared navigation, layout, and booking details are rendered once; page-specific content and route metadata live in `src/content/`. Existing page URLs, WordPress-exported styles and media, and RSS feeds are retained.
 
-## Preview locally
+## Develop
 
-From the repository root, run:
+Install dependencies and start the Vite development server:
 
 ```sh
-python3 -m http.server 8000
+npm ci
+npm run dev
 ```
 
-Then open <http://localhost:8000>.
+## Build and deploy
+
+Run `npm run build` to create the static site in `dist/`. GitHub Actions builds and deploys it to GitHub Pages when changes are pushed to `main`.
