@@ -97,7 +97,3 @@ ul li, ol li {
 .main-page-widget {
 	text-align: center;
 }
-
-.main-page-widget iframe {
-	width: 525px !important;
-}
