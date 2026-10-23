@@ -8,6 +8,7 @@ const fragments = import.meta.glob("./content/*.html", {
 });
 
 const pageByPath = new Map(pages.map((page) => [page.path, page]));
+const sitePrefix = window.location.hostname.endsWith(".github.io") ? "/pracowniaterapii" : "";
 const menuItems = [
   ["Psychoterapia", "/psychoterapia/"],
   ["Oferta", "/oferta/"],
@@ -18,8 +19,16 @@ const menuItems = [
   ["Psychoterapia grupowa", "/psychoterapia-grupowa/"],
 ];
 
+function siteUrl(path) {
+  return `${sitePrefix}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 function normalizePath(pathname) {
-  const path = decodeURI(pathname).replace(/index\.html$/, "");
+  let path = pathname;
+  if (sitePrefix && (path === sitePrefix || path.startsWith(`${sitePrefix}/`))) {
+    path = path.slice(sitePrefix.length) || "/";
+  }
+  path = decodeURI(path).replace(/index\.html$/, "");
   if (path === "" || path === "/") return "/";
   return path.endsWith("/") ? path : `${path}/`;
 }
@@ -32,8 +41,8 @@ function rewriteUrl(value, sourcePath) {
   }
 
   const routePath = normalizePath(originalUrl.pathname);
-  originalUrl.pathname = pageByPath.has(routePath) ? routePath : originalUrl.pathname;
-  return `${originalUrl.pathname}${originalUrl.search}${originalUrl.hash}`;
+  const path = pageByPath.has(routePath) ? routePath : originalUrl.pathname;
+  return `${siteUrl(path)}${originalUrl.search}${originalUrl.hash}`;
 }
 
 function prepareContent(html, sourcePath) {
@@ -99,7 +108,7 @@ function Header({ path, menuOpen, setMenuOpen, searchOpen, setSearchOpen }) {
             <Icon name="facebook" />
           </a>
           <span className="site-topbar-left-ad">
-            <Icon name="map-marker" /> <a href="/gabinet/">Wrocław</a>
+            <Icon name="map-marker" /> <a href={siteUrl("/gabinet/")}>Wrocław</a>
           </span>
         </div>
         <div className="site-topbar-right">
@@ -119,7 +128,7 @@ function Header({ path, menuOpen, setMenuOpen, searchOpen, setSearchOpen }) {
         <div className="clearboth" />
       </div>
       <div className={`search-block${searchOpen ? " is-open" : ""}`}>
-        <form role="search" method="get" className="search-form" action="/">
+        <form role="search" method="get" className="search-form" action={siteUrl("/")}>
           <label>
             <input
               type="search"
@@ -136,7 +145,7 @@ function Header({ path, menuOpen, setMenuOpen, searchOpen, setSearchOpen }) {
       <div className="site-container">
         <div className="site-branding">
           <h1 className="site-title">
-            <a href="/" title="Pracownia Terapii i Rozwoju">
+            <a href={siteUrl("/")} title="Pracownia Terapii i Rozwoju">
               Pracownia Terapii i Rozwoju
             </a>
           </h1>
@@ -177,7 +186,7 @@ function Header({ path, menuOpen, setMenuOpen, searchOpen, setSearchOpen }) {
                     path === href ? " current-menu-item" : ""
                   }`}
                 >
-                  <a href={href} aria-current={path === href ? "page" : undefined}>
+                  <a href={siteUrl(href)} aria-current={path === href ? "page" : undefined}>
                     {label}
                   </a>
                 </li>
@@ -196,7 +205,7 @@ function BookingWidget() {
       <div className="local-doctor-widget__profile">
         <img
           className="local-doctor-widget__portrait"
-          src="/wp-content/uploads/2016/11/psycholog-martyna-cygon-400.jpg"
+          src={siteUrl("/wp-content/uploads/2016/11/psycholog-martyna-cygon-400.jpg")}
           alt="Martyna Korzec"
           width="88"
           height="88"
@@ -251,7 +260,7 @@ function Footer() {
             <Icon name="facebook" />
           </a>
           <div className="site-footer-social-ad">
-            <Icon name="map-marker" /> <a href="/gabinet/">Wrocław</a>
+            <Icon name="map-marker" /> <a href={siteUrl("/gabinet/")}>Wrocław</a>
           </div>
         </div>
       </div>
@@ -320,7 +329,7 @@ export default function App() {
     if (nextPath === pathname && url.hash) return;
 
     event.preventDefault();
-    window.history.pushState({}, "", `${nextPath}${url.search}${url.hash}`);
+    window.history.pushState({}, "", `${siteUrl(nextPath)}${url.search}${url.hash}`);
     setPathname(nextPath);
     setMenuOpen(false);
     setSearchOpen(false);
@@ -369,7 +378,7 @@ export default function App() {
               <div className="error-404 not-found">
                 <h1 className="page-title">Strony nie znaleziono</h1>
                 <p>Nie możemy znaleźć strony pod tym adresem.</p>
-                <a href="/">Wróć na stronę główną</a>
+                <a href={siteUrl("/")}>Wróć na stronę główną</a>
               </div>
             </main>
           )}

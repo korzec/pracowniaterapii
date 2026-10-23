@@ -1,6 +1,6 @@
 # Pracownia Terapii i Rozwoju
 
-React single-page application for [pracowniaterapii.com.pl](https://pracowniaterapii.com.pl). Shared navigation, layout, and booking details are rendered once; page-specific content and route metadata live in `src/content/`. Existing page URLs, WordPress-exported styles and media, and RSS feeds are retained.
+React single-page application for [pracowniaterapii.com.pl](https://pracowniaterapii.com.pl). Shared navigation, layout, and booking details are rendered once; page-specific content and route metadata live in `src/content/`. Existing page URLs, WordPress-exported styles and media, and RSS feeds are retained. The build supports both the custom-domain root and the `/pracowniaterapii/` GitHub Pages project path.
 
 ## Develop
 
