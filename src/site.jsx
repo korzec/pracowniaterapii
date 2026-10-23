@@ -9,6 +9,24 @@ const fragments = import.meta.glob("./content/*.html", {
 
 const pageByPath = new Map(pages.map((page) => [page.path, page]));
 const sitePrefix = window.location.hostname.endsWith(".github.io") ? "/pracowniaterapii" : "";
+const searchablePages = pages
+  .filter((page) => !page.bodyClass.includes("archive") && page.path !== "/artykuly/")
+  .map((page) => {
+    const html = fragments[`./content/${page.fragment}.html`] ?? "";
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    parsed.querySelectorAll("script, style, iframe, nav, .comments-area").forEach((element) => {
+      element.remove();
+    });
+    const content = [...parsed.querySelectorAll(".entry-content")]
+      .map((element) => element.textContent)
+      .join(" ");
+
+    return {
+      path: page.path,
+      title: page.title,
+      text: (content || parsed.body.textContent).replace(/\s+/g, " ").trim(),
+    };
+  });
 const menuItems = [
   ["Psychoterapia", "/psychoterapia/"],
   ["Oferta", "/oferta/"],
@@ -80,11 +98,62 @@ function prepareContent(html, sourcePath) {
   return parsed.body.innerHTML;
 }
 
+function getSearchResults(query) {
+  const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if (!terms.length) return [];
+
+  return searchablePages
+    .filter((page) => {
+      const text = `${page.title} ${page.text}`.toLowerCase();
+      return terms.every((term) => text.includes(term));
+    })
+    .map((page) => {
+      const snippetSource = terms.every((term) => page.text.toLowerCase().includes(term))
+        ? page.text
+        : page.title;
+      return { ...page, snippet: createSnippet(snippetSource, terms) };
+    });
+}
+
+function createSnippet(text, terms) {
+  const lowerText = text.toLowerCase();
+  const firstMatch = terms
+    .map((term) => ({ index: lowerText.indexOf(term), term }))
+    .filter(({ index }) => index >= 0)
+    .sort((a, b) => a.index - b.index)[0];
+  if (!firstMatch) return text.slice(0, 100);
+
+  const snippetLength = Math.max(100, ...terms.map((term) => term.length));
+  let start = Math.max(
+    0,
+    firstMatch.index - Math.floor((snippetLength - firstMatch.term.length) / 2),
+  );
+  let end = Math.min(text.length, start + snippetLength);
+  if (end === text.length) start = Math.max(0, end - snippetLength);
+
+  return `${start > 0 ? "…" : ""}${text.slice(start, end)}${end < text.length ? "…" : ""}`;
+}
+
+function highlightMatches(text, terms) {
+  const escapedTerms = [...terms].sort((a, b) => b.length - a.length)
+    .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  if (!escapedTerms.length) return text;
+
+  const matcher = new RegExp(`(${escapedTerms.join("|")})`, "gi");
+  return text.split(matcher).map((part, index) =>
+    terms.includes(part.toLowerCase()) ? <mark key={index}>{part}</mark> : part,
+  );
+}
+
 function Icon({ name }) {
   return <i className={`fa fa-${name}`} aria-hidden="true" />;
 }
 
 function Header({ path, menuOpen, setMenuOpen, searchOpen, setSearchOpen }) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const results = getSearchResults(searchQuery);
+  const terms = searchQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
+
   return (
     <header id="masthead" className="site-header">
       <div className="site-header-topbar">
@@ -128,19 +197,39 @@ function Header({ path, menuOpen, setMenuOpen, searchOpen, setSearchOpen }) {
         <div className="clearboth" />
       </div>
       <div className={`search-block${searchOpen ? " is-open" : ""}`}>
-        <form role="search" method="get" className="search-form" action={siteUrl("/")}>
+        <form
+          role="search"
+          className="search-form"
+          onSubmit={(event) => event.preventDefault()}
+        >
           <label>
             <input
               type="search"
               className="search-field"
-              placeholder="Wpisz frazę i naciśnij enter…"
+              placeholder="Szukaj na stronie…"
               name="s"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
             />
           </label>
           <button type="submit" className="search-submit" aria-label="Szukaj">
             <Icon name="search" />
           </button>
         </form>
+        {terms.length > 0 && (
+          <div className="search-results" aria-live="polite">
+            {results.length ? (
+              results.map((result) => (
+                <a className="search-result" href={siteUrl(result.path)} key={result.path}>
+                  <strong>{highlightMatches(result.title, terms)}</strong>
+                  <span>{highlightMatches(result.snippet, terms)}</span>
+                </a>
+              ))
+            ) : (
+              <p className="search-no-results">Brak wyników wyszukiwania.</p>
+            )}
+          </div>
+        )}
       </div>
       <div className="site-container">
         <div className="site-branding">
