@@ -68,8 +68,14 @@
 	gap: 10px;
 }
 
+.local-doctor-widget__booking {
+	flex: 1 1 200px;
+	min-width: 0;
+}
+
 .local-doctor-widget__button {
 	display: inline-flex;
+	width: 100%;
 	min-height: 42px;
 	align-items: center;
 	justify-content: center;
@@ -104,6 +110,21 @@
 	color: #a94170 !important;
 }
 
+.local-doctor-widget__online-link {
+	display: block;
+	margin-top: 8px;
+	color: #c5588a !important;
+	font-size: 13px;
+	line-height: 1.45;
+	text-align: center;
+	text-decoration: underline !important;
+}
+
+.local-doctor-widget__online-link:hover,
+.local-doctor-widget__online-link:focus {
+	color: #a94170 !important;
+}
+
 .local-doctor-widget--sidebar {
 	max-width: none;
 	padding: 18px;
@@ -129,6 +150,11 @@
 
 .local-doctor-widget--sidebar .local-doctor-widget__actions {
 	flex-direction: column;
+}
+
+.local-doctor-widget--sidebar .local-doctor-widget__booking {
+	flex: 0 1 auto;
+	width: 100%;
 }
 
 .local-doctor-widget--sidebar .local-doctor-widget__button {
@@ -157,6 +183,10 @@
 
 	.local-doctor-widget__actions {
 		flex-direction: column;
+	}
+
+	.local-doctor-widget__booking {
+		width: 100%;
 	}
 
 	.local-doctor-widget__button {
