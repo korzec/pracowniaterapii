@@ -2214,7 +2214,7 @@ input[type="submit"],
 .main-navigation button,
 .wpcf7-submit {
     background: inherit;
-    background-color: #F061A8;
+    background-color: #006A4E;
 }
 
 a,
@@ -2231,7 +2231,7 @@ a,
 .main-navigation div > ul > li.current-menu-parent > a,
 .main-navigation div > ul > li.current_page_parent > a,
 .main-navigation div > ul > li.current_page_ancestor > a {
-    color: #F061A8;
+    color: #006A4E;
 }
 
 
@@ -2255,7 +2255,7 @@ a:hover,
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active,
 .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active,
 .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active {
-    color: #EA1B82;
+    color: #00513B;
 }
 
 .main-navigation button:hover,
@@ -2284,5 +2284,5 @@ input[type="submit"],
 .woocommerce button.button.alt.disabled:hover,
 .wpcf7-submit:hover {
     background: inherit;
-    background-color: #EA1B82;
+    background-color: #00513B;
 }

@@ -75,9 +75,9 @@
 	align-items: center;
 	justify-content: center;
 	padding: 10px 18px;
-	border: 1px solid #d96b9e;
+	border: 1px solid #006a4e;
 	border-radius: 4px;
-	background: #d96b9e;
+	background: #006a4e;
 	color: #fff !important;
 	font-size: 14px;
 	font-weight: 600;
@@ -89,20 +89,20 @@
 
 .local-doctor-widget__button:hover,
 .local-doctor-widget__button:focus {
-	border-color: #bd4f83;
-	background: #bd4f83;
+	border-color: #00513b;
+	background: #00513b;
 	color: #fff !important;
 }
 
 .local-doctor-widget__button--secondary {
 	background: #fff;
-	color: #c5588a !important;
+	color: #006a4e !important;
 }
 
 .local-doctor-widget__button--secondary:hover,
 .local-doctor-widget__button--secondary:focus {
 	background: #fff7fa;
-	color: #a94170 !important;
+	color: #00513b !important;
 }
 
 .local-doctor-widget--sidebar {
